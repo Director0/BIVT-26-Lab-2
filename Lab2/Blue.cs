@@ -1,38 +1,60 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace Lab2
 {
+    
+    
     public class Blue
     {
+        public static long Fact(long n)
+        {
+            if (n == 0)
+            {
+                return 1;
+            }
+
+            return n * Fact(n - 1);
+        }
+        
         const double E = 0.0001;
         public double Task1(int n, double x)
         {
             double answer = 0;
 
             // code here
-
+            for (int i = 1; i <= n; i++)
+            {
+                answer += (Math.Sin(i * x)) / (Math.Pow(x, i - 1));
+            }
             // end
 
             return answer;
         }
         public double Task2(int n)
         {
-            double answer = 0;
+            double ans = 0;
 
             // code here
-
+            for (int i = 1; i <= n; i++)
+            {
+                ans += (Math.Pow(-1, i) * ((Math.Pow(5, i)) / (Fact(i))) );
+            }
             // end
 
-            return answer;
+            return ans;
         }
         public long Task3(int n)
         {
             long answer = 0;
-
+            int prev = 0;
+            int num1 = 0;
             // code here
-
+            for (int i = 0; i < n; i++)
+            {
+                
+            }
             // end
 
             return answer;
