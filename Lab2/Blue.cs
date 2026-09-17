@@ -24,6 +24,7 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            
             for (int i = 1; i <= n; i++)
             {
                 answer += (Math.Sin(i * x)) / (Math.Pow(x, i - 1));
@@ -37,6 +38,7 @@ namespace Lab2
             double ans = 0;
 
             // code here
+            
             for (int i = 1; i <= n; i++)
             {
                 ans += (Math.Pow(-1, i) * ((Math.Pow(5, i)) / (Fact(i))) );
@@ -47,34 +49,55 @@ namespace Lab2
         }
         public long Task3(int n)
         {
-            long answer = 0;
-            int prev = 0;
-            int num1 = 0;
+            long sum = 0;
+            long a = 0, b = 1;
+            
             // code here
+            
             for (int i = 0; i < n; i++)
             {
-                
+                sum += a;
+                long next = a + b;
+                a = b;
+                b = next;
             }
             // end
 
-            return answer;
+            return sum;
         }
         public int Task4(int a, int h, int L)
         {
             int answer = 0;
+            int n = 0;
 
             // code here
-
+            
+            while (answer + a + n * h <= L)
+            {
+                answer += a + n * h;
+                n++;
+            }
+            
             // end
-
-            return answer;
+            
+            return n;
         }
         public double Task5(double x)
         {
             double answer = 0;
+            double ch = 0, zn = 1;
+            double elem = ch / zn;
+            int i = 1;
 
             // code here
-
+            do
+            {
+                ch += i;
+                zn *= x;
+                answer += elem;
+                elem = ch / zn;
+                i++;
+            } while (elem > 0.0001);
             // end
 
             return answer;
@@ -82,9 +105,14 @@ namespace Lab2
         public int Task6(int h, int S, int L)
         {
             int answer = 0;
+            long cells = S;
 
             // code here
-
+            while (cells < L)
+            {
+                cells *= 2;
+                answer += h;
+            }
             // end
 
             return answer;
@@ -92,11 +120,35 @@ namespace Lab2
         public (double a, int b, int c) Task7(double S, double I)
         {
             double a = 0;
+            double leng = 0;
+            double k = 1 + I / 100;
+            double norm = S;
             int b = 0;
             int c = 0;
 
             // code here
+            for (int i = 0; i < 7; i++)
+            {
+                a += norm;
+                norm *= k;
+            }
 
+            norm = S;
+            while (leng < 100)
+            {
+                leng += norm;
+                norm *= k;
+                b++;
+            }
+
+            norm = S;
+            c = 0;
+
+            while (norm <= 42)
+            {
+                norm *= k;
+                c++;
+            }
             // end
 
             return (a, b, c);
@@ -107,7 +159,7 @@ namespace Lab2
             double SY = 0;
 
             // code here
-
+            
             // end
 
             return (SS, SY);
