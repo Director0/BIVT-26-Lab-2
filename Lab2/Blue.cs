@@ -157,11 +157,37 @@ namespace Lab2
         {
             double SS = 0;
             double SY = 0;
+            double eps = 0.0001;
 
             // code here
-            
-            // end
+            double x = a;
 
+            while (x <= b + 0.0000001)
+            {
+                double s = 0;
+                double t = 1;
+                double fact = 1;
+                double st = 1;
+                int i = 0;
+
+                while (Math.Abs(t) >= eps)
+                {
+                    t = (2 * i + 1) * st / fact;
+                    s = s + t;
+
+                    i = i + 1;
+                    fact = fact * i;
+                    st = st * x * x;
+                }
+                
+                double y = (1 + 2 * x * x) * Math.Exp(x * x);
+
+                SS = SS + s;
+                SY = SY + y;
+
+                x = x + h;
+            }
+            // end
             return (SS, SY);
         }
     }
